@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>PitchLog – Ad-free Cricket Scorer</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2ef;--card:#fff;--tx:#10201a;--mut:#5f6f66;--ac:#14633b;--acx:#fff;--bd:#d5ddd8;--ball:#b3261e;--soft:#e3ece6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1511;--card:#15211b;--tx:#edf4ef;--mut:#92a498;--ac:#3fbf84;--acx:#06150e;--bd:#26372d;--ball:#ff6a5c;--soft:#1c2c23}}
+:root[data-theme="dark"]{--bg:#0c1511;--card:#15211b;--tx:#edf4ef;--mut:#92a498;--ac:#3fbf84;--acx:#06150e;--bd:#26372d;--ball:#ff6a5c;--soft:#1c2c23}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px}
+#app{max-width:520px;margin:0 auto;padding:14px 14px 40px}
+h1,.num{font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-weight:700;margin:0}
+h1{font-size:28px;letter-spacing:.2px}
+.sub,.muted{color:var(--mut);font-size:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin:12px 0}
+.score{font-size:64px;line-height:1;margin:6px 0}
+.tgt{margin-top:6px;font-weight:600;color:var(--ball)}
+label{display:block;font-size:13px;color:var(--mut);margin:10px 0 4px}
+input,textarea,select{width:100%;padding:11px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);font:inherit}
+textarea{min-height:64px}
+button{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:12px;padding:14px 0;font-weight:600;cursor:pointer}
+button:active{transform:scale(.97)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.pri{background:var(--ac);color:var(--acx);border-color:var(--ac);width:100%;margin-top:14px}
+.pad{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:8px 0}
+.pad.f{grid-template-columns:repeat(4,1fr)}.pad.t{grid-template-columns:repeat(3,1fr)}
+.pad .r4,.pad .r6{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+.pad .wk{background:var(--ball);color:#fff;border-color:var(--ball)}
+.pad .on{outline:3px solid var(--ac)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{color:var(--mut);font-weight:500;text-align:right;padding:4px 0}th:first-child,td:first-child{text-align:left}
+td{padding:6px 0;text-align:right;border-top:1px solid var(--bd)}
+td .s{font-size:12px;color:var(--mut)}
+.beads{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}
+.bead{min-width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;background:var(--soft);padding:0 4px}
+.bead.b{background:var(--ac);color:var(--acx)}.bead.w{background:var(--ball);color:#fff}.bead.e{border:1px dashed var(--mut);background:none}
+.tabs{display:flex;gap:6px;margin:10px 0}.tabs button{flex:1;padding:10px 0}.tabs .on{background:var(--ac);color:var(--acx);border-color:var(--ac)}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:flex-end;justify-content:center;z-index:9}
+.sheet{background:var(--card);width:100%;max-width:520px;border-radius:18px 18px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));max-height:75%;overflow:auto}
+.sheet button{display:block;width:100%;margin:6px 0;text-align:left;padding:13px}
+.hist{padding:8px 0;border-top:1px solid var(--bd)}
+.wrap{overflow-x:auto}
+</style></head>
+<body><div id="app"></div>
+<script>
+var $=function(s){return document.querySelector(s)};
+var S=null,H=[],tab='s',pend=null;
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function load(){try{S=JSON.parse(localStorage.getItem('pl_m')||'null');H=JSON.parse(localStorage.getItem('pl_h')||'[]')}catch(e){S=null;H=[]}}
+function save(){try{localStorage.setItem('pl_m',JSON.stringify(S));localStorage.setItem('pl_h',JSON.stringify(H))}catch(e){}}
+function fo(b){return Math.floor(b/6)+'.'+b%6}
+function nb(){return{r:0,b:0,f:0,s:0,out:''}}
+function inn(b){var p=S.t[b].p,I={bat:b,r:0,w:0,b:0,x:0,B:{},O:{},st:p[0],ns:p[1],nx:2,bw:null,lb:null,ov:[]};I.B[p[0]]=nb();I.B[p[1]]=nb();return I}
+function cur(){return S.i[S.c]}
+function start(){
+  function g(id){return $('#'+id).value.trim()}
+  function mk(n,d,l){var p=l?l.split(/[,\n]/).map(function(s){return s.trim()}).filter(Boolean):[];var t={n:n||d,p:p};var k=1;if(!p.length){while(t.p.length<11)t.p.push(t.n+' '+(k++))}while(t.p.length<2)t.p.push(t.n+' '+(t.p.length+1));return t}
+  var a=mk(g('n1'),'Team A',g('p1')),b=mk(g('n2'),'Team B',g('p2'));
+  var f=+$('#bf').value;
+  S={t:[a,b],ov:Math.max(1,Math.min(90,+g('ov')||20)),c:0,first:f,i:[],u:[],done:false};
+  S.i.push(inn(f));tab='s';pend=null;save();render();
+}
+function snap(){var u=S.u;S.u=[];var j=JSON.stringify(S);S.u=u;u.push(j);if(u.length>420)u.shift()}
+function undo(){if(!S||!S.u.length)return;var u=S.u,p=JSON.parse(u.pop());p.u=u;S=p;pend=null;save();render()}
+function setB(i){var I=cur(),n=S.t[1-I.bat].p[i];I.bw=n;if(!I.O[n])I.O[n]={b:0,r:0,w:0};save();render()}
+function swap(){snap();var I=cur(),t=I.st;I.st=I.ns;I.ns=t;save();render()}
+function pd(k){pend=pend===k?null:k;render()}
+function ball(k,n,how){
+  var I=cur();if(!I.bw||S.done)return;snap();pend=null;
+  var B=I.B[I.st],O=I.O[I.bw],legal=true,add=0,lab='';
+  if(k==='run'){I.r+=n;B.r+=n;B.b++;O.r+=n;add=n;lab=''+n;if(n===4)B.f++;if(n===6)B.s++}
+  else if(k==='wd'){I.r+=1+n;O.r+=1+n;I.x+=1+n;legal=false;add=n;lab='Wd'+(n?'+'+n:'')}
+  else if(k==='nb'){I.r+=1+n;O.r+=1+n;B.r+=n;B.b++;I.x+=1;legal=false;add=n;lab='Nb'+(n?'+'+n:'');if(n===4)B.f++;if(n===6)B.s++}
+  else if(k==='bye'||k==='lb'){I.r+=n;I.x+=n;B.b++;add=n;lab=(k==='bye'?'B':'LB')+n}
+  else if(k==='w'){B.b++;I.w++;lab='W';B.out=how+(how==='Run out'?'':' b '+I.bw);if(how!=='Run out')O.w++}
+  if(legal){I.b++;O.b++}
+  I.ov.push(lab);
+  var p=S.t[I.bat].p,all=I.w>=p.length-1;
+  if(k==='w'&&!all){I.st=p[I.nx++];I.B[I.st]=nb()}
+  if(add%2===1){var t=I.st;I.st=I.ns;I.ns=t}
+  if(legal&&I.b%6===0){var t2=I.st;I.st=I.ns;I.ns=t2;I.ov=[];I.lb=I.bw;I.bw=null}
+  if(all||I.b>=S.ov*6||(S.c===1&&I.r>S.i[0].r))endInn();
+  save();render();
+}
+function endInn(){
+  if(S.c===0){S.c=1;S.i.push(inn(1-S.first));return}
+  var a=S.i[0],b=S.i[1],ta=S.t[a.bat].n,tb=S.t[b.bat].n;
+  if(b.r>a.r)S.res=tb+' won by '+(S.t[b.bat].p.length-1-b.w)+' wickets';
+  else if(a.r>b.r)S.res=ta+' won by '+(a.r-b.r)+' runs';
+  else S.res='Match tied';
+  S.done=true;
+  H.unshift({d:new Date().toDateString(),s:S.i.map(function(i){return S.t[i.bat].n+' '+i.r+'/'+i.w+' ('+fo(i.b)+')'}),res:S.res});
+  H=H.slice(0,30);
+}
+function endNow(){if(confirm('End this innings now?')){snap();endInn();save();render()}}
+function fresh(){if(!S||S.done||confirm('Leave this match? Progress will be discarded.')){S=null;pend=null;save();render()}}
+function share(){
+  var tx=S.i.map(function(i){return S.t[i.bat].n+' '+i.r+'/'+i.w+' ('+fo(i.b)+' ov)'}).join('\n')+'\n'+S.res;
+  if(navigator.share){navigator.share({text:tx}).catch(function(){})}else{try{navigator.clipboard.writeText(tx);alert('Result copied')}catch(e){}}
+}
+function home(){
+  var h='<h1>PitchLog</h1><div class="sub">Ball-by-ball cricket scoring. No ads, no sign-in.</div><div class="card"><label>Team 1</label><input id="n1" placeholder="Team A"><label>Team 1 players (comma separated, optional)</label><textarea id="p1" placeholder="Leave blank for 11 numbered players"></textarea><label>Team 2</label><input id="n2" placeholder="Team B"><label>Team 2 players (comma separated, optional)</label><textarea id="p2"></textarea><label>Overs per innings</label><input id="ov" type="number" inputmode="numeric" value="20" min="1" max="90"><label>Batting first</label><select id="bf"><option value="0">Team 1</option><option value="1">Team 2</option></select><button class="pri" onclick="start()">Start match</button></div>';
+  if(H.length){h+='<div class="card"><b>Past matches</b>'+H.map(function(m){return '<div class="hist"><div class="muted">'+esc(m.d)+'</div>'+m.s.map(function(x){return '<div>'+esc(x)+'</div>'}).join('')+'<b>'+esc(m.res)+'</b></div>'}).join('')+'</div>'}
+  return h;
+}
+function scoreV(){
+  var I=cur(),h='<div class="card"><div class="muted">'+esc(S.t[I.bat].n)+' batting · innings '+(S.c+1)+' of 2</div><div class="num score">'+I.r+'/'+I.w+'</div><div class="muted">'+fo(I.b)+' of '+S.ov+' overs · run rate '+(I.b?(I.r*6/I.b).toFixed(2):'0.00')+'</div>';
+  if(S.c===1&&!S.done){var need=S.i[0].r+1-I.r,left=S.ov*6-I.b;h+='<div class="tgt">Need '+need+' from '+left+' balls'+(left?' (required rate '+(need*6/left).toFixed(2)+')':'')+'</div>'}
+  if(S.done)h+='<div class="tgt">'+esc(S.res)+'</div>';
+  h+='</div>';
+  if(S.done)return h+'<button class="pri" onclick="share()">Share result</button><button class="pri" onclick="fresh()">Start a new match</button>';
+  h+='<div class="card"><table><tr><th>Batter</th><th>R</th><th>B</th><th>4s</th><th>6s</th></tr>'+[I.st,I.ns].map(function(n,i){var b=I.B[n];return '<tr><td>'+esc(n)+(i===0?' *':'')+'</td><td>'+b.r+'</td><td>'+b.b+'</td><td>'+b.f+'</td><td>'+b.s+'</td></tr>'}).join('')+'</table>';
+  var O=I.O[I.bw]||{b:0,r:0,w:0};
+  h+='<div class="muted" style="margin-top:10px">Bowling: '+esc(I.bw||'choose a bowler')+' · '+fo(O.b)+' ov, '+O.r+' runs, '+O.w+' wkts</div><div class="beads">';
+  for(var k=0;k<Math.max(6,I.ov.length);k++){var x=I.ov[k];h+=x===undefined?'<span class="bead e"></span>':'<span class="bead '+(x==='W'?'w':(x==='4'||x==='6')?'b':'')+'">'+x+'</span>'}
+  h+='</div></div><div class="pad">'+[0,1,2,3,4,6].map(function(n){return '<button class="'+(n>3?'r'+n:'')+'" onclick="ball(\'run\','+n+')">'+n+'</button>'}).join('')+'</div>';
+  h+='<div class="pad f">'+[['wd','Wide'],['nb','No ball'],['bye','Bye'],['lb','Leg bye']].map(function(e){return '<button class="'+(pend===e[0]?'on':'')+'" onclick="pd(\''+e[0]+'\')">'+e[1]+'</button>'}).join('')+'</div>';
+  if(pend==='wd'||pend==='nb'||pend==='bye'||pend==='lb'){h+='<div class="muted">Extra runs run on this ball</div><div class="pad">'+[0,1,2,3,4,6].map(function(n){return '<button onclick="ball(\''+pend+'\','+n+')">'+n+'</button>'}).join('')+'</div>'}
+  h+='<div class="pad"><button class="wk" style="grid-column:span 6" onclick="pd(\'w\')">Wicket</button></div>';
+  if(pend==='w'){h+='<div class="pad t">'+['Bowled','Caught','LBW','Run out','Stumped','Hit wicket'].map(function(w){return '<button onclick="ball(\'w\',0,\''+w+'\')">'+w+'</button>'}).join('')+'</div>'}
+  h+='<div class="pad t"><button onclick="undo()">Undo</button><button onclick="swap()">Swap ends</button><button onclick="endNow()">End innings</button></div>';
+  return h;
+}
+function cardV(){
+  return S.i.map(function(I){
+    var t=S.t[I.bat],bo=S.t[1-I.bat].n;
+    var h='<div class="card"><b>'+esc(t.n)+' '+I.r+'/'+I.w+'</b> <span class="muted">('+fo(I.b)+' ov)</span><div class="wrap"><table><tr><th>Batter</th><th>R</th><th>B</th><th>4s</th><th>6s</th><th>SR</th></tr>';
+    Object.keys(I.B).forEach(function(n){var b=I.B[n];h+='<tr><td>'+esc(n)+'<div class="s">'+esc(b.out||'not out')+'</div></td><td>'+b.r+'</td><td>'+b.b+'</td><td>'+b.f+'</td><td>'+b.s+'</td><td>'+(b.b?(b.r*100/b.b).toFixed(0):'-')+'</td></tr>'});
+    h+='</table></div><div class="muted" style="margin:8px 0">Extras: '+I.x+'</div><div class="wrap"><table><tr><th>'+esc(bo)+' bowling</th><th>O</th><th>R</th><th>W</th><th>Econ</th></tr>';
+    Object.keys(I.O).forEach(function(n){var o=I.O[n];h+='<tr><td>'+esc(n)+'</td><td>'+fo(o.b)+'</td><td>'+o.r+'</td><td>'+o.w+'</td><td>'+(o.b?(o.r*6/o.b).toFixed(1):'-')+'</td></tr>'});
+    return h+'</table></div></div>';
+  }).join('');
+}
+function modal(){
+  if(S.done)return '';var I=cur();if(I.bw)return '';
+  var p=S.t[1-I.bat].p;
+  return '<div class="ov"><div class="sheet"><b>Who bowls the next over?</b>'+p.map(function(n,i){return n===I.lb?'':'<button onclick="setB('+i+')">'+esc(n)+'</button>'}).join('')+'</div></div>';
+}
+function render(){
+  var A=$('#app');
+  if(!S){A.innerHTML=home();return}
+  var h='<h1>'+esc(S.t[0].n)+' v '+esc(S.t[1].n)+'</h1><div class="tabs"><button class="'+(tab==='s'?'on':'')+'" onclick="tab=\'s\';render()">Scoring</button><button class="'+(tab==='c'?'on':'')+'" onclick="tab=\'c\';render()">Scorecard</button><button onclick="fresh()">New match</button></div>';
+  A.innerHTML=h+(tab==='s'?scoreV():cardV())+(tab==='s'?modal():'');
+}
+load();render();
+</script></body></html>
