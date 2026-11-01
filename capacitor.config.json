@@ -1,5 +1,11 @@
 {
   "appId": "com.pitchlog.scorer",
   "appName": "PitchLog",
-  "webDir": "www"
+  "webDir": "www",
+  "plugins": {
+    "FirebaseAuthentication": {
+      "skipNativeAuth": true,
+      "providers": ["google.com"]
+    }
+  }
 }
