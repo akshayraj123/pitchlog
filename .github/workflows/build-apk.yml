@@ -2,6 +2,8 @@ name: Build APK
 on:
   push:
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,3 +31,37 @@ jobs:
         with:
           name: PitchLog-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Enable KVM
+        continue-on-error: true
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Test launch on virtual phone
+        continue-on-error: true
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim
+          script: |
+            adb install -r android/app/build/outputs/apk/debug/app-debug.apk
+            adb logcat -c
+            adb shell monkey -p com.pitchlog.scorer -c android.intent.category.LAUNCHER 1
+            sleep 25
+            adb logcat -d > crash-log.txt
+            adb shell pidof com.pitchlog.scorer > alive.txt || echo DEAD > alive.txt
+      - name: Save diagnostics to repository
+        if: always()
+        continue-on-error: true
+        run: |
+          mkdir -p diag
+          grep -E "FATAL|AndroidRuntime|Caused by|FirebaseApp|Capacitor|pitchlog|Exception" crash-log.txt | head -150 > diag/crash-log.txt || echo "no log" > diag/crash-log.txt
+          cp alive.txt diag/alive.txt || echo "no alive file" > diag/alive.txt
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git add diag
+          git commit -m "diagnostics [skip ci]" || true
+          git push || true
