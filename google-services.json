@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "992240578158",
+    "project_id": "pitchlog-36c48",
+    "storage_bucket": "pitchlog-36c48.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992240578158:android:7006017af06c89faee807f",
+        "android_client_info": {
+          "package_name": "com.pitchlog.scorer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992240578158-9krg7gb2na7ve7qh56ppkm97so40dgfo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pitchlog.scorer",
+            "certificate_hash": "4dd3c1215d2b750665eb137a8958b2428df44089"
+          }
+        },
+        {
+          "client_id": "992240578158-0a288eoir48ben6ev7uami6l4q4b88k1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO03BzSoolFF1LWdhb-MQaFI0SnYWK_p4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992240578158-0a288eoir48ben6ev7uami6l4q4b88k1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
