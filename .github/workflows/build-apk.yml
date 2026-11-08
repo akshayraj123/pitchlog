@@ -51,15 +51,21 @@ jobs:
             adb logcat -c
             adb shell monkey -p com.pitchlog.scorer -c android.intent.category.LAUNCHER 1
             sleep 25
-            adb logcat -d > crash-log.txt
+            adb logcat -d -b all > full.txt
+            adb logcat -d -b crash > crashbuf.txt
+            adb shell dumpsys activity exit-info com.pitchlog.scorer > exitinfo.txt
             adb shell pidof com.pitchlog.scorer > alive.txt || echo DEAD > alive.txt
       - name: Save diagnostics to repository
         if: always()
         continue-on-error: true
         run: |
           mkdir -p diag
-          grep -E "FATAL|AndroidRuntime|Caused by|FirebaseApp|Capacitor|pitchlog|Exception" crash-log.txt | head -150 > diag/crash-log.txt || echo "no log" > diag/crash-log.txt
-          cp alive.txt diag/alive.txt || echo "no alive file" > diag/alive.txt
+          git rm -q --ignore-unmatch diag/crash-log.txt
+          cp crashbuf.txt diag/crash-buffer.txt || echo "none" > diag/crash-buffer.txt
+          cp exitinfo.txt diag/exit-info.txt || echo "none" > diag/exit-info.txt
+          cp alive.txt diag/alive.txt || echo "none" > diag/alive.txt
+          grep -n -A 60 "FATAL EXCEPTION" full.txt | head -150 > diag/fatal.txt || echo "none" > diag/fatal.txt
+          grep -E "pitchlog.scorer|Capacitor|FirebaseAuth|DEBUG|libc" full.txt | grep -v -E "AppsFilter|CarrierSvc|ImsResolver|AiAi|PackageSetting|WindowManager|ActivityTaskManager" | tail -120 > diag/app-log.txt || echo "none" > diag/app-log.txt
           git config user.name github-actions
           git config user.email actions@github.com
           git add diag
