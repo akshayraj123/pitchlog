@@ -1,0 +1,120 @@
+11-09 08:31:33.487  3928  3928 D nativeloader: InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+11-09 08:31:33.494  3928  3928 D nativeloader: InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+11-09 08:31:33.919  1051  1051 D NitzStateMachineImpl: handleCountryDetected: countryIsoCode=us, mLatestNitzSignal=NitzSignal{mReceiptElapsedMillis=PT33.399S, mNitzData=NitzData{mOriginalString=26/11/09:08:31:12+0:0:Etc!UTC, mZoneOffset=0, mDstOffset=0, mCurrentTimeMillis=1794213072000, mEmulatorHostTimeZone=libcore.util.ZoneInfo[mDstSavings=0,mUseDst=false,mDelegate=[id="Etc/UTC",mRawOffset=0,mEarliestRawOffset=0,transitions=0]]}, mAgeMillis=0}
+11-09 08:31:33.957  3042  4020 D ProfileInstaller: Installing profile for com.pitchlog.scorer
+11-09 08:31:34.306  4030  4030 D nativeloader: InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+11-09 08:31:34.307  4030  4030 D nativeloader: InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+11-09 08:31:34.359  4024  4024 D nativeloader: InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+11-09 08:31:34.360  4024  4024 D nativeloader: InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+11-09 08:31:34.744  2937  2993 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:34.744  2937  2993 W libc    : Access denied finding property "service.adb.tls.port"
+11-09 08:31:35.242  1738  1738 W SnapshotHandler: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:35.242  1738  1738 W SnapshotHandler: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:35.242  1738  1738 W SnapshotHandler: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:35.242  1738  1738 W SnapshotHandler: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:35.242  1738  1738 W SnapshotHandler: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:35.242  1738  1738 W SnapshotHandler: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:35.268  1738  2830 W SnapshotHandler: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:35.268  1738  2830 W SnapshotHandler: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:35.268  1738  2830 W SnapshotHandler: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:35.268  1738  2830 W SnapshotHandler: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:35.268  1738  2830 W SnapshotHandler: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:35.268  1738  2830 W SnapshotHandler: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:35.388  4143  4143 D nativeloader: InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+11-09 08:31:35.388  4143  4143 D nativeloader: InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+11-09 08:31:36.297   522   550 I am_pss  : [3042,10192,com.pitchlog.scorer,90695680,67805184,284672,220692480,0,2,4]
+11-09 08:31:36.535  4265  4265 D nativeloader: InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+11-09 08:31:36.536  4265  4265 D nativeloader: InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+11-09 08:31:37.236  1453  3361 I BlockstoreStorage: Clearing Blockstore Data for package com.pitchlog.scorer [CONTEXT service_id=258 ]
+11-09 08:31:37.342  1052  1074 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:37.831  1052  1074 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:37.938  1052  1074 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:38.154   522  1619 W FileUtils: 	at libcore.io.Linux.chmod(Native Method)
+11-09 08:31:38.154   522  1619 W FileUtils: 	at libcore.io.ForwardingOs.chmod(ForwardingOs.java:165)
+11-09 08:31:38.154   522  1619 W FileUtils: 	at libcore.io.BlockGuardOs.chmod(BlockGuardOs.java:83)
+11-09 08:31:38.451  2937  2993 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:38.451  2937  2993 W libc    : Access denied finding property "service.adb.tls.port"
+11-09 08:31:38.717  1052  1074 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:38.739  1052  1074 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:38.741  1052  1074 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:38.985  1052  1074 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:39.553  1402  3377 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:39.553  1402  3377 I SemanticLocation: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:39.553  1402  3377 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:39.553  1402  3377 I SemanticLocation: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:39.553  1402  3377 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:39.553  1402  3377 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:39.629  1402  3377 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:39.629  1402  3377 I SemanticLocation: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:39.629  1402  3377 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:39.629  1402  3377 I SemanticLocation: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:39.629  1402  3377 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:39.629  1402  3377 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:39.670  2937  3724 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:39.670  2937  3724 W libc    : Access denied finding property "service.adb.tls.port"
+11-09 08:31:39.874  4423  4423 D nativeloader: InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+11-09 08:31:39.879  4423  4423 D nativeloader: InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+11-09 08:31:39.894   840   868 W ssioncontroller: Core platform API violation: Llibcore/io/Memory;->pokeByte(JB)V from Lcom/google/protobuf/UnsafeUtil; using reflection
+11-09 08:31:39.894   840   868 W ssioncontroller: Core platform API violation: Llibcore/io/Memory;->peekByte(J)B from Lcom/google/protobuf/UnsafeUtil; using reflection
+11-09 08:31:40.037  1402  3377 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:40.037  1402  3377 I SemanticLocation: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:40.037  1402  3377 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:40.037  1402  3377 I SemanticLocation: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:40.037  1402  3377 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:40.037  1402  3377 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:40.053  4454  4454 D nativeloader:   com_android_tethering: libandroid_net_connectivity_com_android_net_module_util_jni.so:libcronet.114.0.5735.84.so:libframework-connectivity-jni.so:libframework-connectivity-tiramisu-jni.so:libservice-connectivity.so
+11-09 08:31:40.067  4449  4449 D nativeloader: InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+11-09 08:31:40.068  4449  4449 D nativeloader: InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+11-09 08:31:40.075  4434  4434 D nativeloader: InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+11-09 08:31:40.076  4434  4434 D nativeloader: InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+11-09 08:31:40.722  2937  3786 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:40.722  2937  3786 W libc    : Access denied finding property "service.adb.tls.port"
+11-09 08:31:41.090  2937  3724 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:41.101  2937  3724 W libc    : Access denied finding property "service.adb.tls.port"
+11-09 08:31:42.249  2937  3724 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:42.250  2937  3724 W libc    : Access denied finding property "service.adb.tls.port"
+11-09 08:31:43.622  2937  3786 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:43.622  2937  3786 W libc    : Access denied finding property "service.adb.tls.port"
+11-09 08:31:43.690   522   898 E RecoverySnapshotStorage: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:43.690   522   898 E RecoverySnapshotStorage: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:43.690   522   898 E RecoverySnapshotStorage: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:43.690   522   898 E RecoverySnapshotStorage: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:43.690   522   898 E RecoverySnapshotStorage: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:44.329   522   537 E RecoverySnapshotStorage: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:44.329   522   537 E RecoverySnapshotStorage: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:44.329   522   537 E RecoverySnapshotStorage: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:44.329   522   537 E RecoverySnapshotStorage: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:44.329   522   537 E RecoverySnapshotStorage: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:45.281   522   550 I am_pss  : [3042,10192,com.pitchlog.scorer,80772096,62615552,265216,201478144,0,2,4]
+11-09 08:31:45.322  2937  3786 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:45.322  2937  3786 W libc    : Access denied finding property "service.adb.tls.port"
+11-09 08:31:45.722   522   537 E RecoverySnapshotStorage: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:45.722   522   537 E RecoverySnapshotStorage: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:45.722   522   537 E RecoverySnapshotStorage: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:45.722   522   537 E RecoverySnapshotStorage: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:45.722   522   537 E RecoverySnapshotStorage: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:46.265  1453  3955 W libc    : Access denied finding property "ro.hardware.chipname"
+11-09 08:31:46.501  2937  3786 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:46.510  2937  3786 W libc    : Access denied finding property "service.adb.tls.port"
+11-09 08:31:47.224  1402  3412 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:47.224  1402  3412 I SemanticLocation: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:47.224  1402  3412 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:47.224  1402  3412 I SemanticLocation: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:47.224  1402  3412 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:47.224  1402  3412 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:47.544  1402  3412 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:47.544  1402  3412 I SemanticLocation: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:47.544  1402  3412 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:47.544  1402  3412 I SemanticLocation: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:47.544  1402  3412 I SemanticLocation: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:47.544  1402  3412 I SemanticLocation: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:47.683   522   827 E RecoverySnapshotStorage: 	at libcore.io.IoBridge.open(IoBridge.java:574)
+11-09 08:31:47.683   522   827 E RecoverySnapshotStorage: 	at libcore.io.Linux.open(Native Method)
+11-09 08:31:47.683   522   827 E RecoverySnapshotStorage: 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+11-09 08:31:47.683   522   827 E RecoverySnapshotStorage: 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+11-09 08:31:47.683   522   827 E RecoverySnapshotStorage: 	at libcore.io.IoBridge.open(IoBridge.java:560)
+11-09 08:31:47.958  1052  1083 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:48.013  1052  1083 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:48.108  1052  1083 W libc    : Access denied finding property "ro.vendor.aware_available"
+11-09 08:31:48.280  2937  3001 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+11-09 08:31:48.289  2937  3001 W libc    : Access denied finding property "service.adb.tls.port"

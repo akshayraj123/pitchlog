@@ -1,1 +1,5 @@
-ls: cannot access 'android/app/build/outputs/apk/debug/': No such file or directory
+total 5232
+drwxr-xr-x 2 runner runner    4096 Nov  9 08:29 .
+drwxr-xr-x 3 runner runner    4096 Nov  9 08:29 ..
+-rw-r--r-- 1 runner runner 5343144 Nov  9 08:29 app-debug.apk
+-rw-r--r-- 1 runner runner     369 Nov  9 08:29 output-metadata.json
