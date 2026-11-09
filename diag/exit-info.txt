@@ -1,12 +1,1 @@
-ACTIVITY MANAGER PROCESS EXIT INFO (dumpsys activity exit-info)
-Last Timestamp of Persistence Into Persistent Storage: 1970-01-01 00:00:00.000
-  package: com.pitchlog.scorer
-    Historical Process Exit for uid=10192
-        ApplicationExitInfo #0:
-          timestamp=2026-11-08 08:09:32.499 pid=2713 realUid=99000 packageUid=10192 definingUid=10134 user=0
-          process=com.google.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0 reason=13 (OTHER KILLS BY SYSTEM) subreason=17 (ISOLATED NOT NEEDED) status=0
-          importance=300 pss=0.00 rss=0.00 description=isolated not needed state=empty trace=null
-        ApplicationExitInfo #1:
-          timestamp=2026-11-08 08:09:32.216 pid=2415 realUid=10192 packageUid=10192 definingUid=10192 user=0
-          process=com.pitchlog.scorer reason=4 (APP CRASH(EXCEPTION)) subreason=0 (UNKNOWN) status=0
-          importance=100 pss=0.00 rss=0.00 description=crash state=empty trace=null
+none
