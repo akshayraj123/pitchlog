@@ -1,0 +1,6 @@
+ext {
+    rgcfaIncludeGoogle = true
+    minSdkVersion = 22
+    compileSdkVersion = 34
+    targetSdkVersion = 34
+    androidxActivityVersion = '1.8.0'
