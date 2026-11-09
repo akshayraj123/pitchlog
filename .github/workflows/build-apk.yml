@@ -32,7 +32,11 @@ jobs:
           sed -i 's/^ext {/ext {\n    rgcfaIncludeGoogle = true/' android/variables.gradle
           tail -5 android/app/build.gradle
           head -4 android/variables.gradle
-      - run: chmod +x android/gradlew && cd android && ./gradlew assembleDebug
+      - name: Build APK
+        run: |
+          chmod +x android/gradlew
+          cd android
+          ./gradlew assembleDebug 2>&1 | tee ../gradle.log
       - uses: actions/upload-artifact@v4
         with:
           name: PitchLog-apk
@@ -57,10 +61,10 @@ jobs:
             adb logcat -c
             adb shell monkey -p com.pitchlog.scorer -c android.intent.category.LAUNCHER 1
             sleep 25
-            adb exec-out screencap -p > screen.png
-            adb logcat -d -b all > full.txt
-            adb logcat -d -b crash > crashbuf.txt
-            adb shell dumpsys activity exit-info com.pitchlog.scorer > exitinfo.txt
+            adb exec-out screencap -p > screen.png || true
+            adb logcat -d -b all > full.txt || true
+            adb logcat -d -b crash > crashbuf.txt || true
+            adb shell dumpsys activity exit-info com.pitchlog.scorer > exitinfo.txt || true
             adb shell pidof com.pitchlog.scorer > alive.txt || echo DEAD > alive.txt
       - name: Save diagnostics to repository
         if: always()
@@ -74,6 +78,11 @@ jobs:
           cp screen.png diag/screen.png || true
           grep -n -A 60 "FATAL EXCEPTION" full.txt | head -150 > diag/fatal.txt || echo "none" > diag/fatal.txt
           grep -E "pitchlog.scorer|Capacitor|FirebaseAuth|DEBUG|libc" full.txt | grep -v -E "AppsFilter|CarrierSvc|ImsResolver|AiAi|PackageSetting|WindowManager|ActivityTaskManager" | tail -120 > diag/app-log.txt || echo "none" > diag/app-log.txt
+          tail -60 gradle.log > diag/gradle-tail.txt || echo "none" > diag/gradle-tail.txt
+          grep -n -A 25 "What went wrong" gradle.log | head -60 > diag/gradle-error.txt || true
+          tail -8 android/app/build.gradle > diag/app-gradle-tail.txt || true
+          head -6 android/variables.gradle > diag/variables.txt || true
+          ls -la android/app/build/outputs/apk/debug/ > diag/apk-list.txt 2>&1 || true
           git config user.name github-actions
           git config user.email actions@github.com
           git add diag
