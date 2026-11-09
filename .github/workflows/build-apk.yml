@@ -35,8 +35,15 @@ jobs:
       - name: Build APK
         run: |
           chmod +x android/gradlew
+          sed -i 's/networkTimeout=10000/networkTimeout=180000/; s/-all.zip/-bin.zip/' android/gradle/wrapper/gradle-wrapper.properties
+          cat android/gradle/wrapper/gradle-wrapper.properties
           cd android
-          ./gradlew assembleDebug 2>&1 | tee ../gradle.log
+          for i in 1 2 3; do
+            ./gradlew assembleDebug 2>&1 | tee -a ../gradle.log && break
+            echo "Attempt $i failed, retrying in 20 seconds"
+            sleep 20
+          done
+          test -f app/build/outputs/apk/debug/app-debug.apk
       - uses: actions/upload-artifact@v4
         with:
           name: PitchLog-apk
