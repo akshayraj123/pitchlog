@@ -26,6 +26,12 @@ jobs:
       - run: cp google-services.json android/app/google-services.json
       - run: mkdir -p ~/.android && cp debug.keystore ~/.android/debug.keystore
       - run: npx cap sync android
+      - name: Add Google sign-in library
+        run: |
+          printf '\ndependencies {\n    implementation "com.google.android.gms:play-services-auth:21.2.0"\n}\n' >> android/app/build.gradle
+          sed -i 's/^ext {/ext {\n    rgcfaIncludeGoogle = true/' android/variables.gradle
+          tail -5 android/app/build.gradle
+          head -4 android/variables.gradle
       - run: chmod +x android/gradlew && cd android && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
@@ -51,6 +57,7 @@ jobs:
             adb logcat -c
             adb shell monkey -p com.pitchlog.scorer -c android.intent.category.LAUNCHER 1
             sleep 25
+            adb exec-out screencap -p > screen.png
             adb logcat -d -b all > full.txt
             adb logcat -d -b crash > crashbuf.txt
             adb shell dumpsys activity exit-info com.pitchlog.scorer > exitinfo.txt
@@ -64,6 +71,7 @@ jobs:
           cp crashbuf.txt diag/crash-buffer.txt || echo "none" > diag/crash-buffer.txt
           cp exitinfo.txt diag/exit-info.txt || echo "none" > diag/exit-info.txt
           cp alive.txt diag/alive.txt || echo "none" > diag/alive.txt
+          cp screen.png diag/screen.png || true
           grep -n -A 60 "FATAL EXCEPTION" full.txt | head -150 > diag/fatal.txt || echo "none" > diag/fatal.txt
           grep -E "pitchlog.scorer|Capacitor|FirebaseAuth|DEBUG|libc" full.txt | grep -v -E "AppsFilter|CarrierSvc|ImsResolver|AiAi|PackageSetting|WindowManager|ActivityTaskManager" | tail -120 > diag/app-log.txt || echo "none" > diag/app-log.txt
           git config user.name github-actions
